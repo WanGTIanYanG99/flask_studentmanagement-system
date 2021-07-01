@@ -1,0 +1,42 @@
+<!doctype html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='style.css')}}">
+</head>
+   <body>
+      <h1>listcourse.html</h1>
+      <table>
+         <thead>
+            <th>index</th>
+            <th>userid</th>
+            <th>depart</th>
+            <th>username</th>
+            <th>sex</th>
+            <th>courseid</th>
+            <th>coursename</th>
+            <th>teachername</th>
+            <th>score</th>
+            <th>operation</th>
+         </thead>
+
+         {% for row in rows %}
+            <tr>
+               <td></td>
+               <td>{{row["id"]}}</td>
+               <td>{{row["depart"]}}</td>
+               <td> {{ row["username"]}}</td>
+               <td>{{row['sex']}}</td>
+               <td>{{row['courseid']}}</td>
+               <td>{{row['coursename']}}</td>
+               <td>{{row['teachername']}}</td>
+                <td>{{row['score']}}</td>
+               <td>
+                  <a href="deleteusercourse/{{row['id']}}"  onClick="return confirm('确定删除 {{row['username']}} 学生的课程?');">退课</a>&nbsp;&nbsp;
+                  <a href="deletecourse/{{row['courseid']}}"  onClick="return confirm('确定删除 {{row['coursename']}} 课程和选该课的学生?');">删除课程</a>
+               </td>
+            </tr>
+         {% endfor %}
+      </table>
+
+   </body>
+</html>

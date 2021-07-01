@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>login</title>
+    <style type="text/css">
+        p span{
+        	display:inline-block;
+		width: 140px;
+		margin-left: 50px;
+		margin-top: 34px;
+		font-size: 25px;
+		}
+     body{
+        background:url(../static/QQ图片20210701115011.jpg);
+        background-size: cover;
+        }
+        .lg{
+        float: left;
+        height: 300px;
+        width: 425px;
+        margin-left: 785.5px;
+        margin-top: 150px;
+        background-color:lightskyblue;
+		border-radius:8%;
+        }
+    </style>
+</head>
+<body>
+<div class="lg">
+<form action="{{ url_for('login') }}" method="post">
+    <p><span>用户名: </span><input type="text" name="id" required autocomplete="off" style="width: 150px;height: 25px;"></p>
+    <p><span>密码: </span><input type="password" name="password" required style="width: 150px;height: 25px;"></p>
+    <input type="submit" value="submit" style="margin-left: 66px;margin-top: 20px;font-size: 30px;width: 276px;height: 51px;">&nbsp;&nbsp;
+    <input type="reset" value="reset" style="float: right;margin-top: 80px;margin-right: 10px;font-size: 20px;">
+</form>
+</div>
+    {% if msg %}
+        <p><strong>Error</strong>: {{ msg }}</p>
+    {% endif %}
+</body>
+</html>
